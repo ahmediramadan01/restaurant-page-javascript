@@ -1,0 +1,11 @@
+{
+  "name": "restaurant-page-javascript",
+  "version": "1.0.0",
+  "description": "Single page restaurant application using vanilla JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ahmed Ramadan",
+  "license": "ISC"
+}
