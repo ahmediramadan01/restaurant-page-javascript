@@ -23,4 +23,13 @@ const renderHome = function () {
     return homeSection;
 };
 
-export default renderHome;
+function loadHome() {
+    const mainSection = document.createElement("main");
+    mainSection.classList.add("main");
+    mainSection.textContent = "";
+    mainSection.appendChild(renderHome());
+
+    return mainSection;
+}
+
+export default loadHome;

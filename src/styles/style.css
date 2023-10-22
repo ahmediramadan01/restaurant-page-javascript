@@ -81,12 +81,6 @@ button {
 /* Main */
 .main {
     flex-grow: 1;
-}
-
-/* Home Section */
-
-.home {
-    height: 100%;
     background: linear-gradient(
             180deg,
             rgba(0, 0, 0, 0) 0%,
@@ -95,7 +89,12 @@ button {
             #000 100%
         ),
         url("../assets/background.jpeg");
+}
 
+/* Home Section */
+
+.home {
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -124,4 +123,70 @@ button {
     letter-spacing: 2.25px;
     max-width: 74.5rem;
     padding-top: 1.5rem;
+}
+
+/* About Us Section */
+
+.about {
+    display: grid;
+    grid-template-columns: repeat(2, 47.5rem);
+    gap: 26rem;
+    justify-items: center;
+    justify-content: center;
+    padding: 7.5rem;
+}
+
+.about-div {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.secondary-heading {
+    color: #fff;
+    font-family: Quattrocento;
+    font-size: 6rem;
+    font-style: normal;
+    font-weight: 400;
+    border-bottom: 4px solid #f2c94c;
+    margin-bottom: 2.5rem;
+}
+
+.paragraph--about {
+    color: #fff;
+    font-family: Ruda;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px; /* 160% */
+    letter-spacing: 2.25px;
+}
+
+.button {
+    color: #f2c94c;
+    text-align: center;
+    font-family: Ruda;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 700;
+    border: 2px solid #f2c94c;
+    padding: 1rem;
+    transition: all 0.5s;
+}
+
+.button:hover {
+    color: #000;
+    background-color: #f2c94c;
+}
+
+.image--about {
+    width: 100%;
 }

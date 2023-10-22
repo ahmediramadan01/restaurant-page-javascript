@@ -2,6 +2,56 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/about.js":
+/*!**********************!*\
+  !*** ./src/about.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _assets_about_jpeg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/about.jpeg */ "./src/assets/about.jpeg");
+
+var renderAbout = function renderAbout() {
+  var aboutSection = document.createElement("section");
+  aboutSection.classList.add("about");
+  var aboutDiv = document.createElement("div");
+  aboutDiv.classList.add("about-div");
+  var aboutText = document.createElement("div");
+  aboutText.classList.add("about-text");
+  var secondaryHeading = document.createElement("h2");
+  secondaryHeading.classList.add("secondary-heading");
+  secondaryHeading.textContent = "ABOUT US";
+  var aboutParagraph = document.createElement("p");
+  aboutParagraph.classList.add("paragraph--about");
+  aboutParagraph.textContent = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.";
+  var readButton = document.createElement("button");
+  readButton.classList.add("button");
+  readButton.textContent = "Read More";
+  var image = document.createElement("img");
+  image.src = _assets_about_jpeg__WEBPACK_IMPORTED_MODULE_0__;
+  image.classList.add("image--about");
+  aboutText.appendChild(secondaryHeading);
+  aboutText.appendChild(aboutParagraph);
+  aboutDiv.appendChild(aboutText);
+  aboutDiv.appendChild(readButton);
+  aboutSection.appendChild(aboutDiv);
+  aboutSection.appendChild(image);
+  return aboutSection;
+};
+function loadAbout() {
+  var mainSection = document.createElement("main");
+  mainSection.classList.add("main");
+  mainSection.textContent = "";
+  mainSection.appendChild(renderAbout());
+  return loadAbout;
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderAbout);
+
+/***/ }),
+
 /***/ "./src/home.js":
 /*!*********************!*\
   !*** ./src/home.js ***!
@@ -30,7 +80,14 @@ var renderHome = function renderHome() {
   homeSection.appendChild(image);
   return homeSection;
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderHome);
+function loadHome() {
+  var mainSection = document.createElement("main");
+  mainSection.classList.add("main");
+  mainSection.textContent = "";
+  mainSection.appendChild(renderHome());
+  return mainSection;
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (loadHome);
 
 /***/ }),
 
@@ -45,6 +102,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./home */ "./src/home.js");
+/* harmony import */ var _about__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./about */ "./src/about.js");
+
 
 var renderHeader = function renderHeader() {
   var header = document.createElement("header");
@@ -64,34 +123,53 @@ var renderNavigation = function renderNavigation() {
   homeLink.href = "#";
   homeLink.textContent = "Home";
   homeLink.classList.add("nav__link");
+  homeLink.classList.add("nav__link--home");
   var aboutUsLink = document.createElement("a");
   aboutUsLink.href = "#";
   aboutUsLink.textContent = "About Us";
   aboutUsLink.classList.add("nav__link");
+  aboutUsLink.classList.add("nav__link--about");
   var menuLink = document.createElement("a");
   menuLink.href = "#";
   menuLink.textContent = "Menu";
   menuLink.classList.add("nav__link");
+  aboutUsLink.classList.add("nav__link--menu");
   var contactLink = document.createElement("a");
   contactLink.href = "#";
   contactLink.textContent = "Contact";
   contactLink.classList.add("nav__link");
+  aboutUsLink.classList.add("nav__link--contact");
   navigation.appendChild(homeLink);
   navigation.appendChild(aboutUsLink);
   navigation.appendChild(menuLink);
   navigation.appendChild(contactLink);
   return navigation;
 };
-var renderMain = function renderMain() {
+var renderMain = function renderMain(renderSection) {
   var mainSection = document.createElement("main");
   mainSection.classList.add("main");
-  mainSection.appendChild((0,_home__WEBPACK_IMPORTED_MODULE_0__["default"])());
+  var section = renderSection();
+  mainSection.appendChild(section);
   return mainSection;
 };
 var renderWebsite = function renderWebsite() {
   var body = document.querySelector("body");
   body.appendChild(renderHeader());
-  body.appendChild(renderMain());
+  var mainElement = renderMain(_home__WEBPACK_IMPORTED_MODULE_0__["default"]);
+  body.appendChild(mainElement);
+  var homeLink = document.querySelector(".nav__link--home");
+  homeLink.addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent the default link behavior (navigating to a new page)
+    mainElement.innerHTML = ""; // Clear the current main content
+    mainElement.appendChild((0,_home__WEBPACK_IMPORTED_MODULE_0__["default"])()); // Load and display the "Home" content
+  });
+
+  var aboutLink = document.querySelector(".nav__link--about");
+  aboutLink.addEventListener("click", function (event) {
+    event.preventDefault();
+    mainElement.innerHTML = "";
+    mainElement.appendChild((0,_about__WEBPACK_IMPORTED_MODULE_1__["default"])());
+  });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderWebsite);
 
@@ -203,12 +281,6 @@ button {
 /* Main */
 .main {
     flex-grow: 1;
-}
-
-/* Home Section */
-
-.home {
-    height: 100%;
     background: linear-gradient(
             180deg,
             rgba(0, 0, 0, 0) 0%,
@@ -217,7 +289,12 @@ button {
             #000 100%
         ),
         url(${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
 
+/* Home Section */
+
+.home {
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -247,7 +324,73 @@ button {
     max-width: 74.5rem;
     padding-top: 1.5rem;
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/style.css"],"names":[],"mappings":"AAAA,mBAAmB;;AAInB;IACI,UAAU;IACV,SAAS;IACT,sBAAsB;AAC1B;;AAEA;IACI,gBAAgB;IAChB,uBAAuB;AAC3B;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,aAAa;IACb,sBAAsB;AAC1B;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,qBAAqB;IACrB,cAAc;AAClB;;AAEA;IACI,eAAe;IACf,gBAAgB;IAChB,YAAY;IACZ,aAAa;AACjB;;AAEA,WAAW;;AAEX;IACI,aAAa;IACb,mBAAmB;IACnB,8BAA8B;IAC9B,aAAa;AACjB;;AAEA;IACI,WAAW;IACX,kBAAkB;IAClB,iBAAiB;IACjB,iBAAiB;IACjB,kBAAkB;IAClB,gBAAgB;IAChB,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,SAAS;AACb;;AAEA;;IAEI,WAAW;IACX,kBAAkB;IAClB,iBAAiB;IACjB,eAAe;IACf,kBAAkB;IAClB,gBAAgB;IAChB,oCAAoC;IACpC,oBAAoB;AACxB;;AAEA;;IAEI,qCAAqC;AACzC;;AAEA,SAAS;AACT;IACI,YAAY;AAChB;;AAEA,iBAAiB;;AAEjB;IACI,YAAY;IACZ;;;;;;;+CAOoC;;IAEpC,aAAa;IACb,sBAAsB;IACtB,mBAAmB;IACnB,8BAA8B;AAClC;;AAEA;IACI,WAAW;IACX,kBAAkB;IAClB,yBAAyB;IACzB,iBAAiB;IACjB,kBAAkB;IAClB,gBAAgB;IAChB,gCAAgC;IAChC,kBAAkB;AACtB;;AAEA;IACI,WAAW;IACX,kBAAkB;IAClB,iBAAiB;IACjB,iBAAiB;IACjB,kBAAkB;IAClB,gBAAgB;IAChB,iBAAiB;IACjB,sBAAsB;IACtB,kBAAkB;IAClB,mBAAmB;AACvB","sourcesContent":["/* General Styles */\n\n@import url(\"https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&family=Ruda&display=swap\");\n\n* {\n    padding: 0;\n    margin: 0;\n    box-sizing: border-box;\n}\n\nhtml {\n    font-size: 62.5%;\n    scroll-behavior: smooth;\n}\n\nbody {\n    height: 100vh;\n    background-color: #000;\n    display: flex;\n    flex-direction: column;\n}\n\nul {\n    list-style: none;\n}\n\na {\n    text-decoration: none;\n    color: inherit;\n}\n\nbutton {\n    cursor: pointer;\n    background: none;\n    border: none;\n    font: inherit;\n}\n\n/* Header */\n\n.header {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: 2rem;\n}\n\n.header__logo {\n    color: #fff;\n    text-align: center;\n    font-family: Ruda;\n    font-size: 2.4rem;\n    font-style: normal;\n    font-weight: 400;\n    letter-spacing: 1.44px;\n}\n\n.nav {\n    display: flex;\n    align-items: center;\n    gap: 3rem;\n}\n\n.nav__link:link,\n.nav__link:visited {\n    color: #fff;\n    text-align: center;\n    font-family: Ruda;\n    font-size: 20px;\n    font-style: normal;\n    font-weight: 400;\n    border-bottom: 1px solid transparent;\n    transition: all 0.3s;\n}\n\n.nav__link:hover,\n.nav__link:active {\n    border-bottom: 1px solid currentColor;\n}\n\n/* Main */\n.main {\n    flex-grow: 1;\n}\n\n/* Home Section */\n\n.home {\n    height: 100%;\n    background: linear-gradient(\n            180deg,\n            rgba(0, 0, 0, 0) 0%,\n            rgba(39, 39, 39, 0.1) 0.01%,\n            rgba(0, 0, 0, 0.13) 13.02%,\n            #000 100%\n        ),\n        url(\"../assets/background.jpeg\");\n\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: space-between;\n}\n\n.heading {\n    color: #fff;\n    text-align: center;\n    font-family: Quattrocento;\n    font-size: 7.2rem;\n    font-style: normal;\n    font-weight: 700;\n    border-bottom: 4px solid #f2c94c;\n    padding-top: 15rem;\n}\n\n.paragraph {\n    color: #fff;\n    text-align: center;\n    font-family: Ruda;\n    font-size: 2.5rem;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 40px;\n    letter-spacing: 2.25px;\n    max-width: 74.5rem;\n    padding-top: 1.5rem;\n}\n"],"sourceRoot":""}]);
+
+/* About Us Section */
+
+.about {
+    display: grid;
+    grid-template-columns: repeat(2, 47.5rem);
+    gap: 26rem;
+    justify-items: center;
+    justify-content: center;
+    padding: 7.5rem;
+}
+
+.about-div {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.secondary-heading {
+    color: #fff;
+    font-family: Quattrocento;
+    font-size: 6rem;
+    font-style: normal;
+    font-weight: 400;
+    border-bottom: 4px solid #f2c94c;
+    margin-bottom: 2.5rem;
+}
+
+.paragraph--about {
+    color: #fff;
+    font-family: Ruda;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px; /* 160% */
+    letter-spacing: 2.25px;
+}
+
+.button {
+    color: #f2c94c;
+    text-align: center;
+    font-family: Ruda;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 700;
+    border: 2px solid #f2c94c;
+    padding: 1rem;
+    transition: all 0.5s;
+}
+
+.button:hover {
+    color: #000;
+    background-color: #f2c94c;
+}
+
+.image--about {
+    width: 100%;
+}
+`, "",{"version":3,"sources":["webpack://./src/styles/style.css"],"names":[],"mappings":"AAAA,mBAAmB;;AAInB;IACI,UAAU;IACV,SAAS;IACT,sBAAsB;AAC1B;;AAEA;IACI,gBAAgB;IAChB,uBAAuB;AAC3B;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,aAAa;IACb,sBAAsB;AAC1B;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,qBAAqB;IACrB,cAAc;AAClB;;AAEA;IACI,eAAe;IACf,gBAAgB;IAChB,YAAY;IACZ,aAAa;AACjB;;AAEA,WAAW;;AAEX;IACI,aAAa;IACb,mBAAmB;IACnB,8BAA8B;IAC9B,aAAa;AACjB;;AAEA;IACI,WAAW;IACX,kBAAkB;IAClB,iBAAiB;IACjB,iBAAiB;IACjB,kBAAkB;IAClB,gBAAgB;IAChB,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,SAAS;AACb;;AAEA;;IAEI,WAAW;IACX,kBAAkB;IAClB,iBAAiB;IACjB,eAAe;IACf,kBAAkB;IAClB,gBAAgB;IAChB,oCAAoC;IACpC,oBAAoB;AACxB;;AAEA;;IAEI,qCAAqC;AACzC;;AAEA,SAAS;AACT;IACI,YAAY;IACZ;;;;;;;+CAOoC;AACxC;;AAEA,iBAAiB;;AAEjB;IACI,YAAY;IACZ,aAAa;IACb,sBAAsB;IACtB,mBAAmB;IACnB,8BAA8B;AAClC;;AAEA;IACI,WAAW;IACX,kBAAkB;IAClB,yBAAyB;IACzB,iBAAiB;IACjB,kBAAkB;IAClB,gBAAgB;IAChB,gCAAgC;IAChC,kBAAkB;AACtB;;AAEA;IACI,WAAW;IACX,kBAAkB;IAClB,iBAAiB;IACjB,iBAAiB;IACjB,kBAAkB;IAClB,gBAAgB;IAChB,iBAAiB;IACjB,sBAAsB;IACtB,kBAAkB;IAClB,mBAAmB;AACvB;;AAEA,qBAAqB;;AAErB;IACI,aAAa;IACb,yCAAyC;IACzC,UAAU;IACV,qBAAqB;IACrB,uBAAuB;IACvB,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,kBAAkB;IAClB,8BAA8B;AAClC;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,kBAAkB;IAClB,8BAA8B;AAClC;;AAEA;IACI,WAAW;IACX,yBAAyB;IACzB,eAAe;IACf,kBAAkB;IAClB,gBAAgB;IAChB,gCAAgC;IAChC,qBAAqB;AACzB;;AAEA;IACI,WAAW;IACX,iBAAiB;IACjB,eAAe;IACf,kBAAkB;IAClB,gBAAgB;IAChB,iBAAiB,EAAE,SAAS;IAC5B,sBAAsB;AAC1B;;AAEA;IACI,cAAc;IACd,kBAAkB;IAClB,iBAAiB;IACjB,eAAe;IACf,kBAAkB;IAClB,gBAAgB;IAChB,yBAAyB;IACzB,aAAa;IACb,oBAAoB;AACxB;;AAEA;IACI,WAAW;IACX,yBAAyB;AAC7B;;AAEA;IACI,WAAW;AACf","sourcesContent":["/* General Styles */\n\n@import url(\"https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&family=Ruda&display=swap\");\n\n* {\n    padding: 0;\n    margin: 0;\n    box-sizing: border-box;\n}\n\nhtml {\n    font-size: 62.5%;\n    scroll-behavior: smooth;\n}\n\nbody {\n    height: 100vh;\n    background-color: #000;\n    display: flex;\n    flex-direction: column;\n}\n\nul {\n    list-style: none;\n}\n\na {\n    text-decoration: none;\n    color: inherit;\n}\n\nbutton {\n    cursor: pointer;\n    background: none;\n    border: none;\n    font: inherit;\n}\n\n/* Header */\n\n.header {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: 2rem;\n}\n\n.header__logo {\n    color: #fff;\n    text-align: center;\n    font-family: Ruda;\n    font-size: 2.4rem;\n    font-style: normal;\n    font-weight: 400;\n    letter-spacing: 1.44px;\n}\n\n.nav {\n    display: flex;\n    align-items: center;\n    gap: 3rem;\n}\n\n.nav__link:link,\n.nav__link:visited {\n    color: #fff;\n    text-align: center;\n    font-family: Ruda;\n    font-size: 20px;\n    font-style: normal;\n    font-weight: 400;\n    border-bottom: 1px solid transparent;\n    transition: all 0.3s;\n}\n\n.nav__link:hover,\n.nav__link:active {\n    border-bottom: 1px solid currentColor;\n}\n\n/* Main */\n.main {\n    flex-grow: 1;\n    background: linear-gradient(\n            180deg,\n            rgba(0, 0, 0, 0) 0%,\n            rgba(39, 39, 39, 0.1) 0.01%,\n            rgba(0, 0, 0, 0.13) 13.02%,\n            #000 100%\n        ),\n        url(\"../assets/background.jpeg\");\n}\n\n/* Home Section */\n\n.home {\n    height: 100%;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: space-between;\n}\n\n.heading {\n    color: #fff;\n    text-align: center;\n    font-family: Quattrocento;\n    font-size: 7.2rem;\n    font-style: normal;\n    font-weight: 700;\n    border-bottom: 4px solid #f2c94c;\n    padding-top: 15rem;\n}\n\n.paragraph {\n    color: #fff;\n    text-align: center;\n    font-family: Ruda;\n    font-size: 2.5rem;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 40px;\n    letter-spacing: 2.25px;\n    max-width: 74.5rem;\n    padding-top: 1.5rem;\n}\n\n/* About Us Section */\n\n.about {\n    display: grid;\n    grid-template-columns: repeat(2, 47.5rem);\n    gap: 26rem;\n    justify-items: center;\n    justify-content: center;\n    padding: 7.5rem;\n}\n\n.about-div {\n    display: flex;\n    flex-direction: column;\n    align-items: start;\n    justify-content: space-between;\n}\n\n.about-text {\n    display: flex;\n    flex-direction: column;\n    align-items: start;\n    justify-content: space-between;\n}\n\n.secondary-heading {\n    color: #fff;\n    font-family: Quattrocento;\n    font-size: 6rem;\n    font-style: normal;\n    font-weight: 400;\n    border-bottom: 4px solid #f2c94c;\n    margin-bottom: 2.5rem;\n}\n\n.paragraph--about {\n    color: #fff;\n    font-family: Ruda;\n    font-size: 25px;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 40px; /* 160% */\n    letter-spacing: 2.25px;\n}\n\n.button {\n    color: #f2c94c;\n    text-align: center;\n    font-family: Ruda;\n    font-size: 17px;\n    font-style: normal;\n    font-weight: 700;\n    border: 2px solid #f2c94c;\n    padding: 1rem;\n    transition: all 0.5s;\n}\n\n.button:hover {\n    color: #000;\n    background-color: #f2c94c;\n}\n\n.image--about {\n    width: 100%;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -726,6 +869,16 @@ function styleTagTransform(css, styleElement) {
   }
 }
 module.exports = styleTagTransform;
+
+/***/ }),
+
+/***/ "./src/assets/about.jpeg":
+/*!*******************************!*\
+  !*** ./src/assets/about.jpeg ***!
+  \*******************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "about.jpeg";
 
 /***/ }),
 
