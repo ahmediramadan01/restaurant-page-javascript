@@ -46,9 +46,9 @@ function loadAbout() {
   mainSection.classList.add("main");
   mainSection.textContent = "";
   mainSection.appendChild(renderAbout());
-  return loadAbout;
+  return mainSection;
 }
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderAbout);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (loadAbout);
 
 /***/ }),
 
@@ -62,7 +62,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _assets_pizza_top_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/pizza-top.png */ "./src/assets/pizza-top.png");
+/* harmony import */ var _assets_pizza_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/pizza.png */ "./src/assets/pizza.png");
 
 var renderHome = function renderHome() {
   var homeSection = document.createElement("section");
@@ -74,7 +74,8 @@ var renderHome = function renderHome() {
   paragraph.classList.add("paragraph");
   paragraph.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac placerat dui.\n        Vestibulum ut felis et lorem porta congue vitae nec turpis. Aliquam quis leo at nunc tempor faucibus et ac massa.";
   var image = document.createElement("img");
-  image.src = _assets_pizza_top_png__WEBPACK_IMPORTED_MODULE_0__;
+  image.src = _assets_pizza_png__WEBPACK_IMPORTED_MODULE_0__;
+  image.classList.add("image--pizza");
   homeSection.appendChild(heading);
   homeSection.appendChild(paragraph);
   homeSection.appendChild(image);
@@ -91,6 +92,59 @@ function loadHome() {
 
 /***/ }),
 
+/***/ "./src/menu.js":
+/*!*********************!*\
+  !*** ./src/menu.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _assets_menu_1_jpeg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/menu-1.jpeg */ "./src/assets/menu-1.jpeg");
+/* harmony import */ var _assets_menu_2_jpeg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/menu-2.jpeg */ "./src/assets/menu-2.jpeg");
+
+
+var renderMenu = function renderMenu() {
+  var menuSection = document.createElement("section");
+  menuSection.classList.add("menu");
+  var secondaryHeading = document.createElement("h2");
+  secondaryHeading.classList.add("menu-heading");
+  secondaryHeading.textContent = "OUR MENU";
+  var menuParagraph = document.createElement("p");
+  menuParagraph.classList.add("menu-paragraph");
+  menuParagraph.textContent = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.";
+  var imagesContainer = document.createElement("div");
+  imagesContainer.classList.add("images--menu");
+  var image1 = document.createElement("img");
+  image1.src = _assets_menu_1_jpeg__WEBPACK_IMPORTED_MODULE_0__;
+  image1.classList.add("image--menu");
+  var image2 = document.createElement("img");
+  image2.src = _assets_menu_2_jpeg__WEBPACK_IMPORTED_MODULE_1__;
+  image2.classList.add("image--menu");
+  var menuButton = document.createElement("button");
+  menuButton.classList.add("button");
+  menuButton.textContent = "Menu";
+  imagesContainer.appendChild(image1);
+  imagesContainer.appendChild(image2);
+  menuSection.appendChild(secondaryHeading);
+  menuSection.appendChild(menuParagraph);
+  menuSection.appendChild(imagesContainer);
+  menuSection.appendChild(menuButton);
+  return menuSection;
+};
+function loadMenu() {
+  var mainSection = document.createElement("main");
+  mainSection.classList.add("main");
+  mainSection.textContent = "";
+  mainSection.appendChild(renderMenu());
+  return mainSection;
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (loadMenu);
+
+/***/ }),
+
 /***/ "./src/website.js":
 /*!************************!*\
   !*** ./src/website.js ***!
@@ -103,6 +157,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./home */ "./src/home.js");
 /* harmony import */ var _about__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./about */ "./src/about.js");
+/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./menu */ "./src/menu.js");
+
 
 
 var renderHeader = function renderHeader() {
@@ -133,12 +189,12 @@ var renderNavigation = function renderNavigation() {
   menuLink.href = "#";
   menuLink.textContent = "Menu";
   menuLink.classList.add("nav__link");
-  aboutUsLink.classList.add("nav__link--menu");
+  menuLink.classList.add("nav__link--menu");
   var contactLink = document.createElement("a");
   contactLink.href = "#";
   contactLink.textContent = "Contact";
   contactLink.classList.add("nav__link");
-  aboutUsLink.classList.add("nav__link--contact");
+  contactLink.classList.add("nav__link--contact");
   navigation.appendChild(homeLink);
   navigation.appendChild(aboutUsLink);
   navigation.appendChild(menuLink);
@@ -159,16 +215,21 @@ var renderWebsite = function renderWebsite() {
   body.appendChild(mainElement);
   var homeLink = document.querySelector(".nav__link--home");
   homeLink.addEventListener("click", function (event) {
-    event.preventDefault(); // Prevent the default link behavior (navigating to a new page)
-    mainElement.innerHTML = ""; // Clear the current main content
-    mainElement.appendChild((0,_home__WEBPACK_IMPORTED_MODULE_0__["default"])()); // Load and display the "Home" content
+    event.preventDefault();
+    mainElement.innerHTML = "";
+    mainElement.appendChild((0,_home__WEBPACK_IMPORTED_MODULE_0__["default"])());
   });
-
   var aboutLink = document.querySelector(".nav__link--about");
   aboutLink.addEventListener("click", function (event) {
     event.preventDefault();
     mainElement.innerHTML = "";
     mainElement.appendChild((0,_about__WEBPACK_IMPORTED_MODULE_1__["default"])());
+  });
+  var menuLink = document.querySelector(".nav__link--menu");
+  menuLink.addEventListener("click", function (event) {
+    event.preventDefault();
+    mainElement.innerHTML = "";
+    mainElement.appendChild((0,_menu__WEBPACK_IMPORTED_MODULE_2__["default"])());
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderWebsite);
@@ -309,7 +370,7 @@ button {
     font-style: normal;
     font-weight: 700;
     border-bottom: 4px solid #f2c94c;
-    padding-top: 15rem;
+    padding-top: 7rem;
 }
 
 .paragraph {
@@ -325,6 +386,10 @@ button {
     padding-top: 1.5rem;
 }
 
+.image--pizza {
+    width: 40%;
+}
+
 /* About Us Section */
 
 .about {
@@ -333,7 +398,7 @@ button {
     gap: 26rem;
     justify-items: center;
     justify-content: center;
-    padding: 7.5rem;
+    padding: 7rem;
 }
 
 .about-div {
@@ -390,7 +455,53 @@ button {
 .image--about {
     width: 100%;
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/style.css"],"names":[],"mappings":"AAAA,mBAAmB;;AAInB;IACI,UAAU;IACV,SAAS;IACT,sBAAsB;AAC1B;;AAEA;IACI,gBAAgB;IAChB,uBAAuB;AAC3B;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,aAAa;IACb,sBAAsB;AAC1B;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,qBAAqB;IACrB,cAAc;AAClB;;AAEA;IACI,eAAe;IACf,gBAAgB;IAChB,YAAY;IACZ,aAAa;AACjB;;AAEA,WAAW;;AAEX;IACI,aAAa;IACb,mBAAmB;IACnB,8BAA8B;IAC9B,aAAa;AACjB;;AAEA;IACI,WAAW;IACX,kBAAkB;IAClB,iBAAiB;IACjB,iBAAiB;IACjB,kBAAkB;IAClB,gBAAgB;IAChB,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,SAAS;AACb;;AAEA;;IAEI,WAAW;IACX,kBAAkB;IAClB,iBAAiB;IACjB,eAAe;IACf,kBAAkB;IAClB,gBAAgB;IAChB,oCAAoC;IACpC,oBAAoB;AACxB;;AAEA;;IAEI,qCAAqC;AACzC;;AAEA,SAAS;AACT;IACI,YAAY;IACZ;;;;;;;+CAOoC;AACxC;;AAEA,iBAAiB;;AAEjB;IACI,YAAY;IACZ,aAAa;IACb,sBAAsB;IACtB,mBAAmB;IACnB,8BAA8B;AAClC;;AAEA;IACI,WAAW;IACX,kBAAkB;IAClB,yBAAyB;IACzB,iBAAiB;IACjB,kBAAkB;IAClB,gBAAgB;IAChB,gCAAgC;IAChC,kBAAkB;AACtB;;AAEA;IACI,WAAW;IACX,kBAAkB;IAClB,iBAAiB;IACjB,iBAAiB;IACjB,kBAAkB;IAClB,gBAAgB;IAChB,iBAAiB;IACjB,sBAAsB;IACtB,kBAAkB;IAClB,mBAAmB;AACvB;;AAEA,qBAAqB;;AAErB;IACI,aAAa;IACb,yCAAyC;IACzC,UAAU;IACV,qBAAqB;IACrB,uBAAuB;IACvB,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,kBAAkB;IAClB,8BAA8B;AAClC;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,kBAAkB;IAClB,8BAA8B;AAClC;;AAEA;IACI,WAAW;IACX,yBAAyB;IACzB,eAAe;IACf,kBAAkB;IAClB,gBAAgB;IAChB,gCAAgC;IAChC,qBAAqB;AACzB;;AAEA;IACI,WAAW;IACX,iBAAiB;IACjB,eAAe;IACf,kBAAkB;IAClB,gBAAgB;IAChB,iBAAiB,EAAE,SAAS;IAC5B,sBAAsB;AAC1B;;AAEA;IACI,cAAc;IACd,kBAAkB;IAClB,iBAAiB;IACjB,eAAe;IACf,kBAAkB;IAClB,gBAAgB;IAChB,yBAAyB;IACzB,aAAa;IACb,oBAAoB;AACxB;;AAEA;IACI,WAAW;IACX,yBAAyB;AAC7B;;AAEA;IACI,WAAW;AACf","sourcesContent":["/* General Styles */\n\n@import url(\"https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&family=Ruda&display=swap\");\n\n* {\n    padding: 0;\n    margin: 0;\n    box-sizing: border-box;\n}\n\nhtml {\n    font-size: 62.5%;\n    scroll-behavior: smooth;\n}\n\nbody {\n    height: 100vh;\n    background-color: #000;\n    display: flex;\n    flex-direction: column;\n}\n\nul {\n    list-style: none;\n}\n\na {\n    text-decoration: none;\n    color: inherit;\n}\n\nbutton {\n    cursor: pointer;\n    background: none;\n    border: none;\n    font: inherit;\n}\n\n/* Header */\n\n.header {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: 2rem;\n}\n\n.header__logo {\n    color: #fff;\n    text-align: center;\n    font-family: Ruda;\n    font-size: 2.4rem;\n    font-style: normal;\n    font-weight: 400;\n    letter-spacing: 1.44px;\n}\n\n.nav {\n    display: flex;\n    align-items: center;\n    gap: 3rem;\n}\n\n.nav__link:link,\n.nav__link:visited {\n    color: #fff;\n    text-align: center;\n    font-family: Ruda;\n    font-size: 20px;\n    font-style: normal;\n    font-weight: 400;\n    border-bottom: 1px solid transparent;\n    transition: all 0.3s;\n}\n\n.nav__link:hover,\n.nav__link:active {\n    border-bottom: 1px solid currentColor;\n}\n\n/* Main */\n.main {\n    flex-grow: 1;\n    background: linear-gradient(\n            180deg,\n            rgba(0, 0, 0, 0) 0%,\n            rgba(39, 39, 39, 0.1) 0.01%,\n            rgba(0, 0, 0, 0.13) 13.02%,\n            #000 100%\n        ),\n        url(\"../assets/background.jpeg\");\n}\n\n/* Home Section */\n\n.home {\n    height: 100%;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: space-between;\n}\n\n.heading {\n    color: #fff;\n    text-align: center;\n    font-family: Quattrocento;\n    font-size: 7.2rem;\n    font-style: normal;\n    font-weight: 700;\n    border-bottom: 4px solid #f2c94c;\n    padding-top: 15rem;\n}\n\n.paragraph {\n    color: #fff;\n    text-align: center;\n    font-family: Ruda;\n    font-size: 2.5rem;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 40px;\n    letter-spacing: 2.25px;\n    max-width: 74.5rem;\n    padding-top: 1.5rem;\n}\n\n/* About Us Section */\n\n.about {\n    display: grid;\n    grid-template-columns: repeat(2, 47.5rem);\n    gap: 26rem;\n    justify-items: center;\n    justify-content: center;\n    padding: 7.5rem;\n}\n\n.about-div {\n    display: flex;\n    flex-direction: column;\n    align-items: start;\n    justify-content: space-between;\n}\n\n.about-text {\n    display: flex;\n    flex-direction: column;\n    align-items: start;\n    justify-content: space-between;\n}\n\n.secondary-heading {\n    color: #fff;\n    font-family: Quattrocento;\n    font-size: 6rem;\n    font-style: normal;\n    font-weight: 400;\n    border-bottom: 4px solid #f2c94c;\n    margin-bottom: 2.5rem;\n}\n\n.paragraph--about {\n    color: #fff;\n    font-family: Ruda;\n    font-size: 25px;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 40px; /* 160% */\n    letter-spacing: 2.25px;\n}\n\n.button {\n    color: #f2c94c;\n    text-align: center;\n    font-family: Ruda;\n    font-size: 17px;\n    font-style: normal;\n    font-weight: 700;\n    border: 2px solid #f2c94c;\n    padding: 1rem;\n    transition: all 0.5s;\n}\n\n.button:hover {\n    color: #000;\n    background-color: #f2c94c;\n}\n\n.image--about {\n    width: 100%;\n}\n"],"sourceRoot":""}]);
+
+/* Menu Section */
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 7rem;
+}
+
+.menu-heading {
+    color: #fff;
+    text-align: center;
+    font-family: Quattrocento;
+    font-size: 6rem;
+    font-style: normal;
+    font-weight: 400;
+    border-bottom: 4px solid #f2c94c;
+    padding-bottom: 2.5rem;
+}
+
+.menu-paragraph {
+    color: #fff;
+    text-align: center;
+    font-family: Ruda;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px; /* 160% */
+    letter-spacing: 2.25px;
+    max-width: 1198px;
+    padding-bottom: 2.5rem;
+}
+
+.images--menu {
+    display: grid;
+    grid-template-columns: repeat(2, 57.5fr);
+    gap: 2.6rem;
+    padding-bottom: 3.7rem;
+}
+
+.image--menu {
+    max-height: 35.6rem;
+    width: 576px;
+}
+`, "",{"version":3,"sources":["webpack://./src/styles/style.css"],"names":[],"mappings":"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","sourcesContent":["/* General Styles */\n\n@import url(\"https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&family=Ruda&display=swap\");\n\n* {\n    padding: 0;\n    margin: 0;\n    box-sizing: border-box;\n}\n\nhtml {\n    font-size: 62.5%;\n    scroll-behavior: smooth;\n}\n\nbody {\n    height: 100vh;\n    background-color: #000;\n    display: flex;\n    flex-direction: column;\n}\n\nul {\n    list-style: none;\n}\n\na {\n    text-decoration: none;\n    color: inherit;\n}\n\nbutton {\n    cursor: pointer;\n    background: none;\n    border: none;\n    font: inherit;\n}\n\n/* Header */\n\n.header {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: 2rem;\n}\n\n.header__logo {\n    color: #fff;\n    text-align: center;\n    font-family: Ruda;\n    font-size: 2.4rem;\n    font-style: normal;\n    font-weight: 400;\n    letter-spacing: 1.44px;\n}\n\n.nav {\n    display: flex;\n    align-items: center;\n    gap: 3rem;\n}\n\n.nav__link:link,\n.nav__link:visited {\n    color: #fff;\n    text-align: center;\n    font-family: Ruda;\n    font-size: 20px;\n    font-style: normal;\n    font-weight: 400;\n    border-bottom: 1px solid transparent;\n    transition: all 0.3s;\n}\n\n.nav__link:hover,\n.nav__link:active {\n    border-bottom: 1px solid currentColor;\n}\n\n/* Main */\n.main {\n    flex-grow: 1;\n    background: linear-gradient(\n            180deg,\n            rgba(0, 0, 0, 0) 0%,\n            rgba(39, 39, 39, 0.1) 0.01%,\n            rgba(0, 0, 0, 0.13) 13.02%,\n            #000 100%\n        ),\n        url(\"../assets/background.jpeg\");\n}\n\n/* Home Section */\n\n.home {\n    height: 100%;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: space-between;\n}\n\n.heading {\n    color: #fff;\n    text-align: center;\n    font-family: Quattrocento;\n    font-size: 7.2rem;\n    font-style: normal;\n    font-weight: 700;\n    border-bottom: 4px solid #f2c94c;\n    padding-top: 7rem;\n}\n\n.paragraph {\n    color: #fff;\n    text-align: center;\n    font-family: Ruda;\n    font-size: 2.5rem;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 40px;\n    letter-spacing: 2.25px;\n    max-width: 74.5rem;\n    padding-top: 1.5rem;\n}\n\n.image--pizza {\n    width: 40%;\n}\n\n/* About Us Section */\n\n.about {\n    display: grid;\n    grid-template-columns: repeat(2, 47.5rem);\n    gap: 26rem;\n    justify-items: center;\n    justify-content: center;\n    padding: 7rem;\n}\n\n.about-div {\n    display: flex;\n    flex-direction: column;\n    align-items: start;\n    justify-content: space-between;\n}\n\n.about-text {\n    display: flex;\n    flex-direction: column;\n    align-items: start;\n    justify-content: space-between;\n}\n\n.secondary-heading {\n    color: #fff;\n    font-family: Quattrocento;\n    font-size: 6rem;\n    font-style: normal;\n    font-weight: 400;\n    border-bottom: 4px solid #f2c94c;\n    margin-bottom: 2.5rem;\n}\n\n.paragraph--about {\n    color: #fff;\n    font-family: Ruda;\n    font-size: 25px;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 40px; /* 160% */\n    letter-spacing: 2.25px;\n}\n\n.button {\n    color: #f2c94c;\n    text-align: center;\n    font-family: Ruda;\n    font-size: 17px;\n    font-style: normal;\n    font-weight: 700;\n    border: 2px solid #f2c94c;\n    padding: 1rem;\n    transition: all 0.5s;\n}\n\n.button:hover {\n    color: #000;\n    background-color: #f2c94c;\n}\n\n.image--about {\n    width: 100%;\n}\n\n/* Menu Section */\n\n.menu {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    padding: 7rem;\n}\n\n.menu-heading {\n    color: #fff;\n    text-align: center;\n    font-family: Quattrocento;\n    font-size: 6rem;\n    font-style: normal;\n    font-weight: 400;\n    border-bottom: 4px solid #f2c94c;\n    padding-bottom: 2.5rem;\n}\n\n.menu-paragraph {\n    color: #fff;\n    text-align: center;\n    font-family: Ruda;\n    font-size: 2.5rem;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 40px; /* 160% */\n    letter-spacing: 2.25px;\n    max-width: 1198px;\n    padding-bottom: 2.5rem;\n}\n\n.images--menu {\n    display: grid;\n    grid-template-columns: repeat(2, 57.5fr);\n    gap: 2.6rem;\n    padding-bottom: 3.7rem;\n}\n\n.image--menu {\n    max-height: 35.6rem;\n    width: 576px;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -892,13 +1003,33 @@ module.exports = __webpack_require__.p + "background.jpeg";
 
 /***/ }),
 
-/***/ "./src/assets/pizza-top.png":
-/*!**********************************!*\
-  !*** ./src/assets/pizza-top.png ***!
-  \**********************************/
+/***/ "./src/assets/menu-1.jpeg":
+/*!********************************!*\
+  !*** ./src/assets/menu-1.jpeg ***!
+  \********************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "pizza-top.png";
+module.exports = __webpack_require__.p + "menu-1.jpeg";
+
+/***/ }),
+
+/***/ "./src/assets/menu-2.jpeg":
+/*!********************************!*\
+  !*** ./src/assets/menu-2.jpeg ***!
+  \********************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "menu-2.jpeg";
+
+/***/ }),
+
+/***/ "./src/assets/pizza.png":
+/*!******************************!*\
+  !*** ./src/assets/pizza.png ***!
+  \******************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "pizza.png";
 
 /***/ })
 
