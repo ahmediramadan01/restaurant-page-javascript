@@ -1,5 +1,6 @@
 import loadHome from "./home";
 import loadAbout from "./about";
+import loadMenu from "./menu";
 
 const renderHeader = function () {
     const header = document.createElement("header");
@@ -36,13 +37,13 @@ const renderNavigation = function () {
     menuLink.href = "#";
     menuLink.textContent = "Menu";
     menuLink.classList.add("nav__link");
-    aboutUsLink.classList.add("nav__link--menu");
+    menuLink.classList.add("nav__link--menu");
 
     const contactLink = document.createElement("a");
     contactLink.href = "#";
     contactLink.textContent = "Contact";
     contactLink.classList.add("nav__link");
-    aboutUsLink.classList.add("nav__link--contact");
+    contactLink.classList.add("nav__link--contact");
 
     navigation.appendChild(homeLink);
     navigation.appendChild(aboutUsLink);
@@ -69,9 +70,9 @@ const renderWebsite = function () {
 
     const homeLink = document.querySelector(".nav__link--home");
     homeLink.addEventListener("click", function (event) {
-        event.preventDefault(); // Prevent the default link behavior (navigating to a new page)
-        mainElement.innerHTML = ""; // Clear the current main content
-        mainElement.appendChild(loadHome()); // Load and display the "Home" content
+        event.preventDefault();
+        mainElement.innerHTML = "";
+        mainElement.appendChild(loadHome());
     });
 
     const aboutLink = document.querySelector(".nav__link--about");
@@ -79,6 +80,13 @@ const renderWebsite = function () {
         event.preventDefault();
         mainElement.innerHTML = "";
         mainElement.appendChild(loadAbout());
+    });
+
+    const menuLink = document.querySelector(".nav__link--menu");
+    menuLink.addEventListener("click", function (event) {
+        event.preventDefault();
+        mainElement.innerHTML = "";
+        mainElement.appendChild(loadMenu());
     });
 };
 

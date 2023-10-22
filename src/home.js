@@ -1,4 +1,4 @@
-import pizzaImage from "./assets/pizza-top.png";
+import pizzaImage from "./assets/pizza.png";
 
 const renderHome = function () {
     const homeSection = document.createElement("section");
@@ -15,6 +15,7 @@ const renderHome = function () {
 
     const image = document.createElement("img");
     image.src = pizzaImage;
+    image.classList.add("image--pizza");
 
     homeSection.appendChild(heading);
     homeSection.appendChild(paragraph);

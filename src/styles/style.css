@@ -109,7 +109,7 @@ button {
     font-style: normal;
     font-weight: 700;
     border-bottom: 4px solid #f2c94c;
-    padding-top: 15rem;
+    padding-top: 7rem;
 }
 
 .paragraph {
@@ -125,6 +125,10 @@ button {
     padding-top: 1.5rem;
 }
 
+.image--pizza {
+    width: 40%;
+}
+
 /* About Us Section */
 
 .about {
@@ -133,7 +137,7 @@ button {
     gap: 26rem;
     justify-items: center;
     justify-content: center;
-    padding: 7.5rem;
+    padding: 7rem;
 }
 
 .about-div {
@@ -189,4 +193,50 @@ button {
 
 .image--about {
     width: 100%;
+}
+
+/* Menu Section */
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 7rem;
+}
+
+.menu-heading {
+    color: #fff;
+    text-align: center;
+    font-family: Quattrocento;
+    font-size: 6rem;
+    font-style: normal;
+    font-weight: 400;
+    border-bottom: 4px solid #f2c94c;
+    padding-bottom: 2.5rem;
+}
+
+.menu-paragraph {
+    color: #fff;
+    text-align: center;
+    font-family: Ruda;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px; /* 160% */
+    letter-spacing: 2.25px;
+    max-width: 1198px;
+    padding-bottom: 2.5rem;
+}
+
+.images--menu {
+    display: grid;
+    grid-template-columns: repeat(2, 57.5fr);
+    gap: 2.6rem;
+    padding-bottom: 3.7rem;
+}
+
+.image--menu {
+    max-height: 35.6rem;
+    width: 576px;
 }

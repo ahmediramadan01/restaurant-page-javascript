@@ -44,7 +44,7 @@ function loadAbout() {
     mainSection.textContent = "";
     mainSection.appendChild(renderAbout());
 
-    return loadAbout;
+    return mainSection;
 }
 
-export default renderAbout;
+export default loadAbout;
