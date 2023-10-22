@@ -213,7 +213,7 @@ button {
     font-style: normal;
     font-weight: 400;
     border-bottom: 4px solid #f2c94c;
-    padding-bottom: 2.5rem;
+    margin-bottom: 2.5rem;
 }
 
 .menu-paragraph {
@@ -226,17 +226,51 @@ button {
     line-height: 40px; /* 160% */
     letter-spacing: 2.25px;
     max-width: 1198px;
-    padding-bottom: 2.5rem;
+    margin-bottom: 2.5rem;
 }
 
 .images--menu {
     display: grid;
     grid-template-columns: repeat(2, 57.5fr);
     gap: 2.6rem;
-    padding-bottom: 3.7rem;
+    margin-bottom: 3.7rem;
 }
 
 .image--menu {
     max-height: 35.6rem;
     width: 576px;
+}
+
+/* Heading */
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 7rem;
+}
+
+.contact-heading {
+    color: #fff;
+    text-align: center;
+    font-family: Quattrocento;
+    font-size: 72px;
+    font-style: normal;
+    font-weight: 700;
+    border-bottom: 4px solid #f2c94c;
+    margin-bottom: 4rem;
+}
+
+.icons {
+    display: flex;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+}
+
+.contact-icon {
+    width: 6rem;
+    height: auto;
 }

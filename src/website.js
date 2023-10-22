@@ -1,6 +1,7 @@
 import loadHome from "./home";
 import loadAbout from "./about";
 import loadMenu from "./menu";
+import loadContact from "./contact";
 
 const renderHeader = function () {
     const header = document.createElement("header");
@@ -87,6 +88,13 @@ const renderWebsite = function () {
         event.preventDefault();
         mainElement.innerHTML = "";
         mainElement.appendChild(loadMenu());
+    });
+
+    const contactLink = document.querySelector(".nav__link--contact");
+    contactLink.addEventListener("click", function (event) {
+        event.preventDefault();
+        mainElement.innerHTML = "";
+        mainElement.appendChild(loadContact());
     });
 };
 
