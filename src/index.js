@@ -1,4 +1,4 @@
 import "./styles/style.css";
-import renderWebsite from "./website.js";
+import renderWebsite from "./website";
 
 renderWebsite();

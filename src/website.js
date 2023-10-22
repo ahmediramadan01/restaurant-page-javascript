@@ -1,4 +1,6 @@
-function renderHeader() {
+import renderHome from "./home";
+
+const renderHeader = function () {
     const header = document.createElement("header");
     header.classList.add("header");
 
@@ -11,9 +13,9 @@ function renderHeader() {
     header.appendChild(renderNavigation());
 
     return header;
-}
+};
 
-function renderNavigation() {
+const renderNavigation = function () {
     const navigation = document.createElement("nav");
     navigation.classList.add("nav");
 
@@ -43,12 +45,21 @@ function renderNavigation() {
     navigation.appendChild(contactLink);
 
     return navigation;
-}
+};
 
-function renderWebsite() {
-    const container = document.querySelector(".container");
+const renderMain = function () {
+    const mainSection = document.createElement("main");
+    mainSection.classList.add("main");
+    mainSection.appendChild(renderHome());
 
-    container.appendChild(renderHeader());
-}
+    return mainSection;
+};
+
+const renderWebsite = function () {
+    const body = document.querySelector("body");
+
+    body.appendChild(renderHeader());
+    body.appendChild(renderMain());
+};
 
 export default renderWebsite;
