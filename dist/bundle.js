@@ -2,6 +2,60 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/website.js":
+/*!************************!*\
+  !*** ./src/website.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function renderHeader() {
+  var header = document.createElement("header");
+  header.classList.add("header");
+  var restaurantLogo = document.createElement("a");
+  restaurantLogo.href = "#";
+  restaurantLogo.textContent = "LA CARAVANA";
+  restaurantLogo.classList.add("header__logo");
+  header.appendChild(restaurantLogo);
+  header.appendChild(renderNavigation());
+  return header;
+}
+function renderNavigation() {
+  var navigation = document.createElement("nav");
+  navigation.classList.add("nav");
+  var homeLink = document.createElement("a");
+  homeLink.href = "#";
+  homeLink.textContent = "Home";
+  homeLink.classList.add("nav__link");
+  var aboutUsLink = document.createElement("a");
+  aboutUsLink.href = "#";
+  aboutUsLink.textContent = "About Us";
+  aboutUsLink.classList.add("nav__link");
+  var menuLink = document.createElement("a");
+  menuLink.href = "#";
+  menuLink.textContent = "Menu";
+  menuLink.classList.add("nav__link");
+  var contactLink = document.createElement("a");
+  contactLink.href = "#";
+  contactLink.textContent = "Contact";
+  contactLink.classList.add("nav__link");
+  navigation.appendChild(homeLink);
+  navigation.appendChild(aboutUsLink);
+  navigation.appendChild(menuLink);
+  navigation.appendChild(contactLink);
+  return navigation;
+}
+function renderWebsite() {
+  var container = document.querySelector(".container");
+  container.appendChild(renderHeader());
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderWebsite);
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/styles/style.css":
 /*!********************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/styles/style.css ***!
@@ -32,6 +86,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `/* General Styles */
 
 html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -53,7 +108,53 @@ button {
     border: none;
     font: inherit;
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/style.css"],"names":[],"mappings":"AAAA,mBAAmB;;AAInB;IACI,UAAU;IACV,SAAS;IACT,sBAAsB;AAC1B;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,qBAAqB;IACrB,cAAc;AAClB;;AAEA;IACI,eAAe;IACf,gBAAgB;IAChB,YAAY;IACZ,aAAa;AACjB","sourcesContent":["/* General Styles */\n\n@import url(\"https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&family=Ruda&display=swap\");\n\n* {\n    padding: 0;\n    margin: 0;\n    box-sizing: border-box;\n}\n\nhtml {\n    font-size: 62.5%;\n}\n\nbody {\n    min-height: 100vh;\n}\n\nul {\n    list-style: none;\n}\n\na {\n    text-decoration: none;\n    color: inherit;\n}\n\nbutton {\n    cursor: pointer;\n    background: none;\n    border: none;\n    font: inherit;\n}\n"],"sourceRoot":""}]);
+
+.container {
+    background-color: #000;
+}
+
+/* Header */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem;
+}
+
+.header__logo {
+    color: #fff;
+    text-align: center;
+    font-family: Ruda;
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 1.44px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.nav__link:link,
+.nav__link:visited {
+    color: #fff;
+    text-align: center;
+    font-family: Ruda;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s;
+}
+
+.nav__link:hover,
+.nav__link:active {
+    border-bottom: 1px solid currentColor;
+}
+`, "",{"version":3,"sources":["webpack://./src/styles/style.css"],"names":[],"mappings":"AAAA,mBAAmB;;AAInB;IACI,UAAU;IACV,SAAS;IACT,sBAAsB;AAC1B;;AAEA;IACI,gBAAgB;IAChB,uBAAuB;AAC3B;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,qBAAqB;IACrB,cAAc;AAClB;;AAEA;IACI,eAAe;IACf,gBAAgB;IAChB,YAAY;IACZ,aAAa;AACjB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA,WAAW;;AAEX;IACI,aAAa;IACb,mBAAmB;IACnB,8BAA8B;IAC9B,aAAa;AACjB;;AAEA;IACI,WAAW;IACX,kBAAkB;IAClB,iBAAiB;IACjB,iBAAiB;IACjB,kBAAkB;IAClB,gBAAgB;IAChB,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,SAAS;AACb;;AAEA;;IAEI,WAAW;IACX,kBAAkB;IAClB,iBAAiB;IACjB,eAAe;IACf,kBAAkB;IAClB,gBAAgB;IAChB,oCAAoC;IACpC,oBAAoB;AACxB;;AAEA;;IAEI,qCAAqC;AACzC","sourcesContent":["/* General Styles */\n\n@import url(\"https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&family=Ruda&display=swap\");\n\n* {\n    padding: 0;\n    margin: 0;\n    box-sizing: border-box;\n}\n\nhtml {\n    font-size: 62.5%;\n    scroll-behavior: smooth;\n}\n\nbody {\n    min-height: 100vh;\n}\n\nul {\n    list-style: none;\n}\n\na {\n    text-decoration: none;\n    color: inherit;\n}\n\nbutton {\n    cursor: pointer;\n    background: none;\n    border: none;\n    font: inherit;\n}\n\n.container {\n    background-color: #000;\n}\n\n/* Header */\n\n.header {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: 3rem;\n}\n\n.header__logo {\n    color: #fff;\n    text-align: center;\n    font-family: Ruda;\n    font-size: 2.4rem;\n    font-style: normal;\n    font-weight: 400;\n    letter-spacing: 1.44px;\n}\n\n.nav {\n    display: flex;\n    align-items: center;\n    gap: 3rem;\n}\n\n.nav__link:link,\n.nav__link:visited {\n    color: #fff;\n    text-align: center;\n    font-family: Ruda;\n    font-size: 20px;\n    font-style: normal;\n    font-weight: 400;\n    border-bottom: 1px solid transparent;\n    transition: all 0.3s;\n}\n\n.nav__link:hover,\n.nav__link:active {\n    border-bottom: 1px solid currentColor;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -581,7 +682,10 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/style.css */ "./src/styles/style.css");
+/* harmony import */ var _website_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./website.js */ "./src/website.js");
 
+
+(0,_website_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
 })();
 
 /******/ })()

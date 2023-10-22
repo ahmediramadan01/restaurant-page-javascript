@@ -10,6 +10,7 @@
 
 html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -30,4 +31,50 @@ button {
     background: none;
     border: none;
     font: inherit;
+}
+
+.container {
+    background-color: #000;
+}
+
+/* Header */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem;
+}
+
+.header__logo {
+    color: #fff;
+    text-align: center;
+    font-family: Ruda;
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 1.44px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.nav__link:link,
+.nav__link:visited {
+    color: #fff;
+    text-align: center;
+    font-family: Ruda;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s;
+}
+
+.nav__link:hover,
+.nav__link:active {
+    border-bottom: 1px solid currentColor;
 }
