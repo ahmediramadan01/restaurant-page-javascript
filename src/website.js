@@ -3,9 +3,7 @@ import loadAbout from "./about";
 import loadMenu from "./menu";
 import loadContact from "./contact";
 
-import appleFavIcon from "./assets/favicons/apple-touch-icon.png";
-import favIcon32 from "./assets/favicons/favicon-32x32.png";
-import favIcon16 from "./assets/favicons/favicon-16x16.png";
+import favIcon from "./assets/favicon.png";
 
 const renderHeader = function () {
     const header = document.createElement("header");
@@ -68,33 +66,14 @@ const renderMain = function (renderSection) {
 };
 
 const renderWebsite = function () {
-    // Create link elements
-    const appleTouchIconLink = document.createElement("link");
-    const favicon32Link = document.createElement("link");
-    const favicon16Link = document.createElement("link");
+    const favIconLink = document.createElement("link");
 
-    // Set attributes for each link element
-    appleTouchIconLink.setAttribute("rel", "apple-touch-icon");
-    appleTouchIconLink.setAttribute("sizes", "180x180");
-    appleTouchIconLink.setAttribute("href", appleFavIcon);
+    favIconLink.setAttribute("rel", "icon");
+    favIconLink.setAttribute("href", favIcon);
 
-    favicon32Link.setAttribute("rel", "icon");
-    favicon32Link.setAttribute("type", "image/png");
-    favicon32Link.setAttribute("sizes", "32x32");
-    favicon32Link.setAttribute("href", favIcon32);
-
-    favicon16Link.setAttribute("rel", "icon");
-    favicon16Link.setAttribute("type", "image/png");
-    favicon16Link.setAttribute("sizes", "16x16");
-    favicon16Link.setAttribute("href", favIcon16);
-
-    // Get the head element of the document
     const head = document.head;
 
-    // Append the link elements to the head
-    head.appendChild(appleTouchIconLink);
-    head.appendChild(favicon32Link);
-    head.appendChild(favicon16Link);
+    head.appendChild(favIconLink);
 
     const body = document.querySelector("body");
     body.appendChild(renderHeader());
