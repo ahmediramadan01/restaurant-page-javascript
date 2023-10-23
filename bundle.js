@@ -225,11 +225,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _about__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./about */ "./src/about.js");
 /* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./menu */ "./src/menu.js");
 /* harmony import */ var _contact__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./contact */ "./src/contact.js");
-/* harmony import */ var _assets_favicons_apple_touch_icon_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./assets/favicons/apple-touch-icon.png */ "./src/assets/favicons/apple-touch-icon.png");
-/* harmony import */ var _assets_favicons_favicon_32x32_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./assets/favicons/favicon-32x32.png */ "./src/assets/favicons/favicon-32x32.png");
-/* harmony import */ var _assets_favicons_favicon_16x16_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./assets/favicons/favicon-16x16.png */ "./src/assets/favicons/favicon-16x16.png");
-
-
+/* harmony import */ var _assets_favicon_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./assets/favicon.png */ "./src/assets/favicon.png");
 
 
 
@@ -283,31 +279,11 @@ var renderMain = function renderMain(renderSection) {
   return mainSection;
 };
 var renderWebsite = function renderWebsite() {
-  // Create link elements
-  var appleTouchIconLink = document.createElement("link");
-  var favicon32Link = document.createElement("link");
-  var favicon16Link = document.createElement("link");
-
-  // Set attributes for each link element
-  appleTouchIconLink.setAttribute("rel", "apple-touch-icon");
-  appleTouchIconLink.setAttribute("sizes", "180x180");
-  appleTouchIconLink.setAttribute("href", _assets_favicons_apple_touch_icon_png__WEBPACK_IMPORTED_MODULE_4__);
-  favicon32Link.setAttribute("rel", "icon");
-  favicon32Link.setAttribute("type", "image/png");
-  favicon32Link.setAttribute("sizes", "32x32");
-  favicon32Link.setAttribute("href", _assets_favicons_favicon_32x32_png__WEBPACK_IMPORTED_MODULE_5__);
-  favicon16Link.setAttribute("rel", "icon");
-  favicon16Link.setAttribute("type", "image/png");
-  favicon16Link.setAttribute("sizes", "16x16");
-  favicon16Link.setAttribute("href", _assets_favicons_favicon_16x16_png__WEBPACK_IMPORTED_MODULE_6__);
-
-  // Get the head element of the document
+  var favIconLink = document.createElement("link");
+  favIconLink.setAttribute("rel", "icon");
+  favIconLink.setAttribute("href", _assets_favicon_png__WEBPACK_IMPORTED_MODULE_4__);
   var head = document.head;
-
-  // Append the link elements to the head
-  head.appendChild(appleTouchIconLink);
-  head.appendChild(favicon32Link);
-  head.appendChild(favicon16Link);
+  head.appendChild(favIconLink);
   var body = document.querySelector("body");
   body.appendChild(renderHeader());
   var mainElement = renderMain(_home__WEBPACK_IMPORTED_MODULE_0__["default"]);
@@ -1152,33 +1128,13 @@ module.exports = __webpack_require__.p + "facebook.png";
 
 /***/ }),
 
-/***/ "./src/assets/favicons/apple-touch-icon.png":
-/*!**************************************************!*\
-  !*** ./src/assets/favicons/apple-touch-icon.png ***!
-  \**************************************************/
+/***/ "./src/assets/favicon.png":
+/*!********************************!*\
+  !*** ./src/assets/favicon.png ***!
+  \********************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "apple-touch-icon.png";
-
-/***/ }),
-
-/***/ "./src/assets/favicons/favicon-16x16.png":
-/*!***********************************************!*\
-  !*** ./src/assets/favicons/favicon-16x16.png ***!
-  \***********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-module.exports = __webpack_require__.p + "favicon-16x16.png";
-
-/***/ }),
-
-/***/ "./src/assets/favicons/favicon-32x32.png":
-/*!***********************************************!*\
-  !*** ./src/assets/favicons/favicon-32x32.png ***!
-  \***********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-module.exports = __webpack_require__.p + "favicon-32x32.png";
+module.exports = __webpack_require__.p + "favicon.png";
 
 /***/ }),
 
