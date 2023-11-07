@@ -3,7 +3,7 @@ import loadAbout from "./about";
 import loadMenu from "./menu";
 import loadContact from "./contact";
 
-import favIcon from "./assets/favicon.png";
+import favIcon from "../assets/favicon.png";
 
 const renderHeader = function () {
     const header = document.createElement("header");

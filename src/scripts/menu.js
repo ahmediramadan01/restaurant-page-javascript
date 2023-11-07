@@ -1,5 +1,5 @@
-import menuImage1 from "./assets/menu-1.jpeg";
-import menuImage2 from "./assets/menu-2.jpeg";
+import menuImage1 from "../assets/menu-1.jpeg";
+import menuImage2 from "../assets/menu-2.jpeg";
 
 const renderMenu = function () {
     const menuSection = document.createElement("section");

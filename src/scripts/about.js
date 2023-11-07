@@ -1,4 +1,4 @@
-import aboutImage from "./assets/about.jpeg";
+import aboutImage from "../assets/about.jpeg";
 
 const renderAbout = function () {
     const aboutSection = document.createElement("section");

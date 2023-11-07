@@ -1,7 +1,7 @@
-import pizzaImage from "./assets/pizza.png";
-import instagramIcon from "./assets/instagram.png";
-import facebookIcon from "./assets/facebook.png";
-import whatsappIcon from "./assets/whatsapp.png";
+import pizzaImage from "../assets/pizza.png";
+import instagramIcon from "../assets/instagram.png";
+import facebookIcon from "../assets/facebook.png";
+import whatsappIcon from "../assets/whatsapp.png";
 
 const renderContact = function () {
     const contactSection = document.createElement("section");

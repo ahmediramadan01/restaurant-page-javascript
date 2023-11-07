@@ -2,17 +2,17 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/about.js":
-/*!**********************!*\
-  !*** ./src/about.js ***!
-  \**********************/
+/***/ "./src/scripts/about.js":
+/*!******************************!*\
+  !*** ./src/scripts/about.js ***!
+  \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _assets_about_jpeg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/about.jpeg */ "./src/assets/about.jpeg");
+/* harmony import */ var _assets_about_jpeg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/about.jpeg */ "./src/assets/about.jpeg");
 
 var renderAbout = function renderAbout() {
   var aboutSection = document.createElement("section");
@@ -52,20 +52,20 @@ function loadAbout() {
 
 /***/ }),
 
-/***/ "./src/contact.js":
-/*!************************!*\
-  !*** ./src/contact.js ***!
-  \************************/
+/***/ "./src/scripts/contact.js":
+/*!********************************!*\
+  !*** ./src/scripts/contact.js ***!
+  \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _assets_pizza_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/pizza.png */ "./src/assets/pizza.png");
-/* harmony import */ var _assets_instagram_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/instagram.png */ "./src/assets/instagram.png");
-/* harmony import */ var _assets_facebook_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./assets/facebook.png */ "./src/assets/facebook.png");
-/* harmony import */ var _assets_whatsapp_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./assets/whatsapp.png */ "./src/assets/whatsapp.png");
+/* harmony import */ var _assets_pizza_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/pizza.png */ "./src/assets/pizza.png");
+/* harmony import */ var _assets_instagram_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/instagram.png */ "./src/assets/instagram.png");
+/* harmony import */ var _assets_facebook_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/facebook.png */ "./src/assets/facebook.png");
+/* harmony import */ var _assets_whatsapp_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/whatsapp.png */ "./src/assets/whatsapp.png");
 
 
 
@@ -118,17 +118,17 @@ function loadContact() {
 
 /***/ }),
 
-/***/ "./src/home.js":
-/*!*********************!*\
-  !*** ./src/home.js ***!
-  \*********************/
+/***/ "./src/scripts/home.js":
+/*!*****************************!*\
+  !*** ./src/scripts/home.js ***!
+  \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _assets_pizza_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/pizza.png */ "./src/assets/pizza.png");
+/* harmony import */ var _assets_pizza_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/pizza.png */ "./src/assets/pizza.png");
 
 var renderHome = function renderHome() {
   var homeSection = document.createElement("section");
@@ -158,18 +158,18 @@ function loadHome() {
 
 /***/ }),
 
-/***/ "./src/menu.js":
-/*!*********************!*\
-  !*** ./src/menu.js ***!
-  \*********************/
+/***/ "./src/scripts/menu.js":
+/*!*****************************!*\
+  !*** ./src/scripts/menu.js ***!
+  \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _assets_menu_1_jpeg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/menu-1.jpeg */ "./src/assets/menu-1.jpeg");
-/* harmony import */ var _assets_menu_2_jpeg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/menu-2.jpeg */ "./src/assets/menu-2.jpeg");
+/* harmony import */ var _assets_menu_1_jpeg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/menu-1.jpeg */ "./src/assets/menu-1.jpeg");
+/* harmony import */ var _assets_menu_2_jpeg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/menu-2.jpeg */ "./src/assets/menu-2.jpeg");
 
 
 var renderMenu = function renderMenu() {
@@ -211,21 +211,21 @@ function loadMenu() {
 
 /***/ }),
 
-/***/ "./src/website.js":
-/*!************************!*\
-  !*** ./src/website.js ***!
-  \************************/
+/***/ "./src/scripts/website.js":
+/*!********************************!*\
+  !*** ./src/scripts/website.js ***!
+  \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./home */ "./src/home.js");
-/* harmony import */ var _about__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./about */ "./src/about.js");
-/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./menu */ "./src/menu.js");
-/* harmony import */ var _contact__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./contact */ "./src/contact.js");
-/* harmony import */ var _assets_favicon_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./assets/favicon.png */ "./src/assets/favicon.png");
+/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./home */ "./src/scripts/home.js");
+/* harmony import */ var _about__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./about */ "./src/scripts/about.js");
+/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./menu */ "./src/scripts/menu.js");
+/* harmony import */ var _contact__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./contact */ "./src/scripts/contact.js");
+/* harmony import */ var _assets_favicon_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/favicon.png */ "./src/assets/favicon.png");
 
 
 
@@ -1328,12 +1328,12 @@ module.exports = __webpack_require__.p + "whatsapp.png";
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
+/*!******************************!*\
+  !*** ./src/scripts/index.js ***!
+  \******************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _styles_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/style.css */ "./src/styles/style.css");
-/* harmony import */ var _website__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./website */ "./src/website.js");
+/* harmony import */ var _styles_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styles/style.css */ "./src/styles/style.css");
+/* harmony import */ var _website__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./website */ "./src/scripts/website.js");
 
 
 (0,_website__WEBPACK_IMPORTED_MODULE_1__["default"])();

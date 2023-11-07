@@ -1,4 +1,4 @@
-import pizzaImage from "./assets/pizza.png";
+import pizzaImage from "../assets/pizza.png";
 
 const renderHome = function () {
     const homeSection = document.createElement("section");
